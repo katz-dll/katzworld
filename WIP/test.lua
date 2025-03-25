@@ -1,17 +1,24 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+Rayfield:Notify({
+    Title = "Commencing the test",
+    Content = "bla bla ble ble ble hublbelelelblelbel",
+    Duration = 5,
+    Image = 4483362458,
+ })
+
 local Window = Rayfield:CreateWindow({
-    Name = "Rayfield Example Window",
+    Name = " Test",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-    LoadingTitle = "Rayfield Interface Suite",
-    LoadingSubtitle = "by Sirius",
+    LoadingTitle = "katz test",
+    LoadingSubtitle = "by by",
     Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
  
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
  
     ConfigurationSaving = {
-       Enabled = true,
+       Enabled = false,
        FolderName = nil, -- Create a custom folder for your hub/game
        FileName = "Big Hub"
     },
@@ -30,6 +37,35 @@ local Window = Rayfield:CreateWindow({
        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-    }
+       Key = {"Hello"} 
  })
+ 
+ local TestTab = Window:CreateTab("Tab Example", 4483362458)
+ local Section = TestTab:CreateSection("Section Example")
+ local Divider = TestTab:CreateDivider()
+
+ local Button = TestTab:CreateButton({
+    Name = "kill certain group of people",
+    Callback = function()
+    print("Successfully killed!")
+    end,
+ })
+
+ local Toggle = TestTab:CreateToggle({
+    Name = "Leave anybody alive?",
+    CurrentValue = false,
+    Flag = "Toggle1", 
+    Callback = function(Value)
+         print("test")
+    end,
+ })
+ local Divider = TestTab:CreateDivider()
+ local ColorPicker = TestTab:CreateColorPicker({
+    Name = "Color Picker",
+    Color = Color3.fromRGB(255,255,255),
+    Flag = "ColorPicker1", 
+    Callback = function(Value)
+       print("test")
+        
+    end
+})
